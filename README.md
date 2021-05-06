@@ -1,4 +1,4 @@
-# device-scan2
+# device-scan
 
 ## Project setup
 ```
