@@ -5,7 +5,8 @@ function resolve(dir) {
 }
 
 // console.log(process.env)
-console.log(process.env.VUE_APP_BASE_API)
+console.log(process.env.VUE_APP_ERP_BASE_API)
+console.log(process.env.VUE_APP_CBS_BASE_API)
 
 const port = 8086
 
@@ -27,13 +28,22 @@ module.exports = {
       errors: true
     },
     proxy: {
-      '/test': {
-        target: 'http://bihutest.zeego.cc/Webapi/API',
+      '/erp': {
+        target: 'http://bihutest.zeego.cc',
         ws: true,
         logLevel: 'debug',
         changeOrigin: true,
         pathRewrite: {
-          '^/test': ''
+          '^/erp': ''
+        }
+      },
+      '/cbs': {
+        target: 'http://cbs-gateway.dev.ebsfw.com',
+        ws: true,
+        logLevel: 'debug',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/cbs': ''
         }
       }
     }

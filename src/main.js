@@ -5,6 +5,12 @@ import 'amfe-flexible'
 
 import 'normalize.css/normalize.css'
 
+var VConsole = require('vconsole/dist/vconsole.min.js')
+
+if (process.env.NODE_ENV === 'development') {
+  var vConsole = new VConsole()
+}
+
 import {
   List,
   Cell,
@@ -19,7 +25,10 @@ import {
   Field,
   Popup,
   Image as VanImage,
-  Pagination
+  Pagination,
+  Toast,
+  Loading,
+  Overlay
 } from 'vant'
 
 import Pager from '@/components/Pager.vue'
@@ -39,6 +48,9 @@ Vue.use(Popup)
 Vue.use(Field)
 Vue.use(VanImage)
 Vue.use(Pagination)
+Vue.use(Toast)
+Vue.use(Loading)
+Vue.use(Overlay)
 
 Vue.component('VanPager', Pager)
 
